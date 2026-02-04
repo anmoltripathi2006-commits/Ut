@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-  emailjs.init({
-    publicKey: "HK8St7m_nWNHMHe1Q"
-  });
+  emailjs.init("HK85t7m_rVMHmHelQ"); // your PUBLIC key
 
   const form = document.getElementById("contact-form");
 
@@ -13,15 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "service_xgul5s7",
       "template_whk7z0s",
       this
-    )
-    .then(() => {
-      alert("Message sent successfully!");
-      form.reset();
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
-      alert("Failed to send message.");
-    });
+    ).then(
+      function () {
+        alert("Message sent successfully!");
+        form.reset();
+      },
+      function (error) {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send message. See console.");
+      }
+    );
   });
-
 });
