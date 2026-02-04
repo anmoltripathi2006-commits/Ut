@@ -56,51 +56,106 @@ section {
 }
 
 /* ================= SKILLS ================= */
-#skills {
-  text-align: center;
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
+body::before {
+  background:
+    radial-gradient(1px 1px at 10% 20%, white 50%, transparent),
+    radial-gradient(1px 1px at 80% 30%, white 50%, transparent),
+    radial-gradient(1px 1px at 40% 70%, white 50%, transparent),
+    radial-gradient(1px 1px at 60% 90%, white 50%, transparent);
+  animation: twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to   { opacity: 1; }
+}
+
+body::after {
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,0.8),
+    transparent 60%
+  );
+  animation: shootingStar 6s linear infinite;
+}
+
+@keyframes shootingStar {
+  0%   { transform: translateX(-120%) translateY(-120%); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateX(120%) translateY(120%); opacity: 0; }
+}
 .skills-row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 50px;
-  flex-wrap: wrap;
-  margin-top: 50px;
+  position: relative;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  transition: transform 0.3s ease;
+  animation: floatSkill 4s ease-in-out infinite;
 }
 
-.skill-item img {
-  width: 95px;
-  height: 95px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.45));
-  transition: transform 0.3s ease, filter 0.3s ease;
+.skill-item:nth-child(odd) {
+  animation-delay: 0.6s;
 }
 
-.skill-item span {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #e6f1ff;
-  letter-spacing: 0.5px;
+.skill-item:nth-child(even) {
+  animation-delay: 1.2s;
 }
 
-.skill-item:hover {
-  transform: translateY(-8px);
+@keyframes floatSkill {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+.skill-item,
+.project-item {
+  position: relative;
+  overflow: hidden;
 }
 
-.skill-item:hover img {
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 22px rgba(0, 229, 255, 0.8));
+.skill-item::after,
+.project-item::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    circle,
+    rgba(0,229,255,0.35),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+.skill-item:hover::after,
+.project-item:hover::after {
+  opacity: 1;
+}
+.project-item {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow:
+    inset 0 0 18px rgba(0,229,255,0.12),
+    0 0 30px rgba(0,229,255,0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 0 45px rgba(0,229,255,0.45),
+    inset 0 0 30px rgba(0,229,255,0.25);
+}
 /* ================= PROJECTS ================= */
 #projects h2 {
   margin-bottom: 40px;
