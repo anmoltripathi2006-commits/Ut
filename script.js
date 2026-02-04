@@ -1,23 +1,22 @@
-(function () {
-  emailjs.init("HK85t7m_nVNHmHelQ"); // PUBLIC KEY
-})();
-
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", function (e) {
+document.getElementById("contact-form").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  emailjs.sendForm(
+  emailjs.send(
     "service_xgul5s7",
     "template_whk7z0s",
-    form
-  )
-  .then(() => {
-    alert("✅ Message sent successfully!");
-    form.reset();
-  })
-  .catch((error) => {
-    alert("❌ Failed to send message. Check console.");
-    console.error("EmailJS Error:", error);
-  });
+    {
+      name: this.name.value,
+      email: this.email.value,
+      message: this.message.value
+    }
+  ).then(
+    function() {
+      alert("Message sent successfully!");
+      document.getElementById("contact-form").reset();
+    },
+    function(error) {
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Check console.");
+    }
+  );
 });
