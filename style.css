@@ -91,70 +91,67 @@ section {
 }
 
 /* ================= SKILLS (FINAL ORBIT VERSION) ================= */
-#skills h2 {
-  text-align: center;
-  margin-bottom: 60px;
-}
+/* ===== DISABLE ORBIT & MAKE SKILLS HORIZONTAL ===== */
 
 .skills-grid {
-  position: relative;
-  width: 420px;
-  height: 420px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  width: 100%;
+  height: auto;
+  position: static;
 }
 
-/* center glow */
+/* Remove center dot */
 .skills-grid::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  background: #00e5ff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 25px #00e5ff;
+  display: none;
 }
 
-/* orbiting skill */
+/* Reset orbit animation */
 .skill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: 0 0;
-  animation: orbit 20s linear infinite;
+  position: static;
+  animation: none;
+  transform: none;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Skill icons */
 .skill img {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   object-fit: contain;
-  transform: translateX(170px);
+  transform: none;
   filter: drop-shadow(0 0 15px rgba(0,229,255,0.6));
 }
 
+/* Skill text */
 .skill span {
-  margin-top: 10px;
-  font-size: 1.1rem;
+  margin-top: 12px;
+  font-size: 1.15rem;
   font-weight: 600;
 }
 
-/* positions */
-.skill:nth-child(1) { transform: rotate(0deg); }
-.skill:nth-child(2) { transform: rotate(60deg); }
-.skill:nth-child(3) { transform: rotate(120deg); }
-.skill:nth-child(4) { transform: rotate(180deg); }
-.skill:nth-child(5) { transform: rotate(240deg); }
-.skill:nth-child(6) { transform: rotate(300deg); }
-
-@keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Space between heading and skills */
+#skills h2 {
+  margin-bottom: 50px;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-grid {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .skill img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
 
 /* ================= PROJECTS ================= */
 #projects h2 {
@@ -261,5 +258,51 @@ footer {
   .project-item img {
     width: 100%;
     height: auto;
+  }
+}
+/* ===== CONTACT SOCIAL BOXES (LinkedIn & GitHub) ===== */
+
+.socials {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Box style like projects */
+.socials a {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  color: #e6f1ff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow:
+    inset 0 0 15px rgba(0,229,255,0.12),
+    0 0 20px rgba(0,229,255,0.18);
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.socials a:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    0 0 35px rgba(0,229,255,0.45),
+    inset 0 0 25px rgba(0,229,255,0.25);
+  color: #00e5ff;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .socials {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .socials a {
+    width: 200px;
+    text-align: center;
   }
 }
