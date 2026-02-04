@@ -1,146 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anmol Tripathi | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="logo">Anmol</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<canvas id="bgCanvas"></canvas>
 
-<!-- HOME -->
-<section id="home" class="hero">
-  <div class="hero-text">
+<header class="navbar">
+  <h2>Anmol</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#connect">Connect</a>
+  </nav>
+</header>
+
+<section id="home" class="hero glass">
+  <div>
     <h1>Hello, I'm <span>Anmol Tripathi</span></h1>
-    <h3>Entry-Level Software Developer</h3>
-    <p>
-      Associate Software Developer with hands-on experience in building
-      responsive web applications and logic-based software projects.
-    </p>
-    <a class="btn" href="#projects">View Projects</a>
+    <p>Entry-Level Software Developer passionate about building real-world applications.</p>
   </div>
+  <img src="images/profile.jpg" class="hero-img"/>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="glass">
-  <h2>About Me</h2>
-  <p>
-    Entry-level Software Developer with a strong foundation in Java, Python,
-    PHP, and Web Technologies. Currently pursuing Bachelor of Computer
-    Applications (BCA) and eager to apply programming, problem-solving,
-    and data structure skills in real-world projects.
-  </p>
-
-  <h3>Education</h3>
-  <div class="education-item">
-    <strong>Bachelor of Computer Applications (BCA)</strong><br>
-    Dr. Bhimrao Ambedkar University, Agra (2023 – 2026)
-  </div>
-
-  <div class="education-item">
-    <strong>Advanced Diploma in Computer Applications (ADCA)</strong><br>
-    PR Computer Education Society (2022) – <b>85.66%</b>
-  </div>
-
-  <div class="education-item">
-    <strong>Higher Secondary (HSC)</strong><br>
-    CBSE Board (2023) – <b>68.4%</b>
-  </div>
-
-  <div class="education-item">
-    <strong>Secondary (SSC)</strong><br>
-    CBSE Board (2021) – <b>87.4%</b>
-  </div>
-</section>
-
-<!-- SKILLS -->
 <section id="skills" class="glass">
   <h2>Technical Skills</h2>
-
-  <div class="skills-grid">
-    <div class="skill-box">Java</div>
-    <div class="skill-box">Python</div>
-    <div class="skill-box">C</div>
-    <div class="skill-box">PHP</div>
-    <div class="skill-box">HTML</div>
-    <div class="skill-box">CSS</div>
-    <div class="skill-box">JavaScript</div>
-    <div class="skill-box">MySQL</div>
-    <div class="skill-box">Git & GitHub</div>
+  <div class="skill-grid">
+    <div><img src="images/icons/html.png"><p>HTML</p></div>
+    <div><img src="images/icons/css.png"><p>CSS</p></div>
+    <div><img src="images/icons/js.png"><p>JavaScript</p></div>
+    <div><img src="images/icons/node.png"><p>Node.js</p></div>
+    <div><img src="images/icons/mongo.png"><p>MongoDB</p></div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="glass">
   <h2>Projects</h2>
 
-  <div class="project">
-    <h3>My Tour – Online Ticket Booking Website</h3>
-    <p>
-      Online tour and ticket booking website using HTML, CSS, JavaScript
-      (frontend), Node.js & Express.js (backend), and MongoDB.
-    </p>
+  <div class="project-card">
+    <img src="images/project1.png">
+    <div>
+      <h3>My Tour – Online Ticket Booking Website</h3>
+      <p>
+        Full-stack tour booking system built using HTML, CSS, JavaScript,
+        Node.js, Express.js, and MongoDB. Features booking workflow,
+        dynamic data handling, and user-friendly UI.
+      </p>
+    </div>
   </div>
 
-  <div class="project">
-    <h3>Responsive Resume Website</h3>
-    <p>
-      Fully responsive personal resume website with clean UI and
-      mobile-first design.
-    </p>
+  <div class="project-card">
+    <img src="images/project2.png">
+    <div>
+      <h3>To-Do List Application</h3>
+      <p>
+        Task management application with CRUD operations using JavaScript.
+        Allows adding, editing, deleting, and saving tasks.
+      </p>
+    </div>
   </div>
 
-  <div class="project">
-    <h3>To-Do List Application</h3>
-    <p>
-      Task management app with CRUD operations using JavaScript.
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>Online Quiz & Number Guessing Game</h3>
-    <p>
-      Logic-based JavaScript games with scoring system.
-    </p>
+  <div class="project-card">
+    <img src="images/project3.png">
+    <div>
+      <h3>Online Quiz & Number Guessing Game</h3>
+      <p>
+        Logic-based interactive games built using JavaScript with
+        score calculation and real-time feedback.
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="glass">
-  <h2>Contact Me</h2>
-
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-
-  <div class="social">
-    <a href="#">LinkedIn</a>
-    <a href="#">GitHub</a>
-    <a href="#">Email</a>
+<section id="connect" class="glass connect-card">
+  <img src="images/profile.jpg" class="profile-pic">
+  <div>
+    <h3>Anmol Tripathi</h3>
+    <p>BCA Student | Software Developer</p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/YOUR_LINK" target="_blank">LinkedIn</a>
+      <a href="https://github.com/YOUR_GITHUB" target="_blank">GitHub</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  © 2025 Anmol Tripathi | Portfolio Website
+  © 2026 Anmol Tripathi
 </footer>
 
 <script src="script.js"></script>
