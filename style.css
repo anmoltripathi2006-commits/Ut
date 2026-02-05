@@ -5,7 +5,56 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
+/* ===== Default (Dark Theme) ===== */
+:root {
+  --bg-color: #0b0f1a;
+  --card-bg: #121826;
+  --text-color: #ffffff;
+  --accent-color: #00e5ff;
+  --shadow: rgba(0, 229, 255, 0.3);
+}
 
+/* ===== Light Theme ===== */
+body.light-theme {
+  --bg-color: #f5f7fb;
+  --card-bg: #ffffff;
+  --text-color: #0b0f1a;
+  --accent-color: #0066ff;
+  --shadow: rgba(0, 102, 255, 0.25);
+}
+
+/* Apply variables */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.project-card,
+.skill-card {
+  background: var(--card-bg);
+  box-shadow: 0 0 20px var(--shadow);
+}
+
+/* Toggle button styling */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
 body {
   background: #000;
   color: #eaeaea;
